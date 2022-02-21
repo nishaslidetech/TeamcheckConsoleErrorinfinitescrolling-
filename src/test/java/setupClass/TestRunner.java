@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 
 //@RunWith(Cucumber.class)
 @RunWith(Cucumber.class)
-@CucumberOptions(features = { "." }, glue = { "stepDefination" }, tags= {"@BlogPage"},
+@CucumberOptions(features = { "." }, glue = { "stepDefination" }, //tags= {"@BlogPage"},
 		plugin = { "pretty", "html:target/site/cucumber-pretty", "json:target/cucumber/cucumber.json",
 				"usage:target/usage.jsonx", "junit:target/cucumber.xml" })
 
