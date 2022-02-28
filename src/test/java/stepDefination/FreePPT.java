@@ -110,11 +110,11 @@ public class FreePPT extends BaseClass {
 			System.out.println("pagination exists");
 
 			// click on pagination link
-			for (int i = 1; i < 2; i++) {
-
+			do
 				if (!driver.findElements(By.xpath("//div[3]//div[1]//div[1]//div//a//img[@alt = 'Next']")).isEmpty()) {
 
-					WebElement nextButton = driver.findElement(By.xpath("//div[3]//div[1]//div[1]//div//a//img[@alt = 'Next']"));
+					WebElement nextButton = driver
+							.findElement(By.xpath("//div[3]//div[1]//div[1]//div//a//img[@alt = 'Next']"));
 					nextButton.click();
 
 					Thread.sleep(3000);
@@ -127,7 +127,7 @@ public class FreePPT extends BaseClass {
 					break;
 				}
 
-			}
+			while (true);
 		} else {
 			System.out.println("No pagination exists");
 		}
@@ -135,3 +135,4 @@ public class FreePPT extends BaseClass {
 	}
 
 }
+
