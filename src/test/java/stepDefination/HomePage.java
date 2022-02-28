@@ -68,34 +68,34 @@ public class HomePage extends BaseClass {
 			pricing.click();
 			Thread.sleep(3000);
 			checkConsoleError();
-			driver.navigate().back();
+			//driver.navigate().back();
 
 			WebElement eBooks = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("eBooks")));
 			eBooks.click();
 			Thread.sleep(3000);
 			checkConsoleError();
-			driver.navigate().back();
+			//driver.navigate().back();
 
 			WebElement templateFinder = wait
 					.until(ExpectedConditions.elementToBeClickable(By.linkText("Template Finder")));
 			templateFinder.click();
 			checkConsoleError();
 			Thread.sleep(3000);
-			driver.navigate().back();
+			//driver.navigate().back();
 
 			WebElement presentationServices = wait
 					.until(ExpectedConditions.elementToBeClickable(By.linkText("Presentation Services")));
 			presentationServices.click();
 			checkConsoleError();
 			Thread.sleep(3000);
-			driver.navigate().back();
+			//driver.navigate().back();
 
 			WebElement researchServices = wait
 					.until(ExpectedConditions.elementToBeClickable(By.linkText("Research Services")));
 			researchServices.click();
 			Thread.sleep(3000);
 			checkConsoleError();
-			driver.navigate().back();
+			//driver.navigate().back();
 
 		} catch (NoSuchElementException e) {
 
@@ -110,35 +110,35 @@ public class HomePage extends BaseClass {
 		aboutUs.click();
 		checkConsoleError();
 		Thread.sleep(3000);
-		driver.navigate().back();
+		//driver.navigate().back();
 
 		WebElement contactUs = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Contact Us")));
 		js.executeScript("arguments[0].scrollIntoView();", contactUs);
 		contactUs.click();
 		Thread.sleep(3000);
 		checkConsoleError();
-		driver.navigate().back();
+		//driver.navigate().back();
 
 		WebElement resumeServices = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Resume Services")));
 		js.executeScript("arguments[0].scrollIntoView();", resumeServices);
 		resumeServices.click();
 		Thread.sleep(3000);
 		checkConsoleError();
-		driver.navigate().back();
+		//driver.navigate().back();
 
 		WebElement couponCode = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Coupon Code")));
 		js.executeScript("arguments[0].scrollIntoView();", couponCode);
 		couponCode.click();
 		Thread.sleep(3000);
 		checkConsoleError();
-		driver.navigate().back();
+		//driver.navigate().back();
 
 		WebElement customDesignServies = wait
 				.until(ExpectedConditions.elementToBeClickable(By.linkText("Custom Design Services")));
 		js.executeScript("arguments[0].scrollIntoView();", customDesignServies);
 		customDesignServies.click();
 		checkConsoleError();
-		driver.navigate().back();
+		//driver.navigate().back();
 
 	}
 
