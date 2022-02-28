@@ -86,7 +86,7 @@ public class eBooks extends BaseClass {
 			buyNow.click();
 			Thread.sleep(3000);
 			checkConsoleError();
-			driver.navigate().back();
+			//driver.navigate().back();
 
 		} catch (FileNotFoundException e) {
 		}
