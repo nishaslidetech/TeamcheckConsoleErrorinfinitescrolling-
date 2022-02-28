@@ -72,7 +72,7 @@ public class Blog extends BaseClass {
 			System.out.println("pagination exists");
 
 			// click on pagination link
-			for (int i = 1; i < 7; i++) {
+			do
 
 				if (!driver
 						.findElements(By.xpath("//div[@class = 'toolbar toolbar-products']//li//a//img[@alt='Next']"))
@@ -92,7 +92,7 @@ public class Blog extends BaseClass {
 					break;
 				}
 
-			}
+			while (true);
 		} else {
 			System.out.println("No pagination exists");
 		}
