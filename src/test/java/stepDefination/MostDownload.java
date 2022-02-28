@@ -68,7 +68,7 @@ public class MostDownload extends BaseClass {
 			System.out.println("pagination exists");
 
 			// click on pagination link
-			for (int i = 1; i < sizeofPagination.size(); i++) {
+			do
 
 				if (!driver.findElements(By.xpath("//div[3]//div[1]//div[1]//div//a//img[@alt = 'Next']")).isEmpty()) {
 
@@ -86,7 +86,7 @@ public class MostDownload extends BaseClass {
 					break;
 				}
 
-			}
+			while (true);
 		} else {
 			System.out.println("No pagination exists");
 		}
