@@ -50,7 +50,7 @@ public class FreePPT extends BaseClass {
 		try {
 			Thread.sleep(3000);
 			select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//img[@title='Circular Flow Of Process 4 Stages Free PowerPoint Templates Slides']")));
+					By.xpath("//div[4]/div[1]/ol[1]/li[2]/div[1]/a[1]/img[1]")));
 			js.executeScript("arguments[0].scrollIntoView();", select_ppt);
 			select_ppt.click();
 			Thread.sleep(3000);
@@ -90,7 +90,7 @@ public class FreePPT extends BaseClass {
 		try {
 			Thread.sleep(3000);
 			select_ppt = wait.until(ExpectedConditions.elementToBeClickable(
-					By.xpath("//img[@title='3d Puzzle Pieces In Line Powerpoint Presentation Slides']")));
+					By.xpath("//div[4]/div[1]/ol[1]/li[2]/div[1]/a[1]/img[1]")));
 			js.executeScript("arguments[0].scrollIntoView();", select_ppt);
 			select_ppt.click();
 			Thread.sleep(3000);
