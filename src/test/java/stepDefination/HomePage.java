@@ -65,6 +65,7 @@ public class HomePage extends BaseClass {
 	@Then("^check the console error for the top navigation links$")
 	public void check_the_console_error_for_the_top_navigation_links() throws Throwable {
 		try {
+			driver.navigate().refresh();
 			Thread.sleep(3000);
 			WebElement pricing = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Pricing")));
 			pricing.click();
