@@ -28,6 +28,8 @@ public class HomePage extends BaseClass {
 
 	@Then("^check console error for Home page$")
 	public void check_console_error_for_Home_page() throws Throwable {
+		driver.navigate().refresh();
+		Thread.sleep(4000);
 		checkConsoleError();
 	}
 
