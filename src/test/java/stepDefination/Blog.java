@@ -24,11 +24,13 @@ public class Blog extends BaseClass {
 		driver.get(AppURL);
 		log.info("It's opening the website URL");
 		BaseClass.ClearBrowserCache();
+		
 	}
 
 	@Then("^check console error for Blog page$")
 	public void check_console_error_for_Blog_page() throws Throwable {
 		try {
+			driver.navigate().refresh();
 			Thread.sleep(3000);
 			WebElement blog = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Blog")));
 			blog.click();
