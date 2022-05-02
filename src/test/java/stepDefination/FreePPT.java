@@ -55,6 +55,8 @@ public class FreePPT extends BaseClass {
 			select_ppt.click();
 			Thread.sleep(3000);
 			checkConsoleError();
+			driver.navigate().back();
+			Thread.sleep(3000);
 		} catch (NoSuchElementException e) {
 
 		}
@@ -62,7 +64,34 @@ public class FreePPT extends BaseClass {
 
 	@Then("^check the pagination and check the console error$")
 	public void check_the_pagination_and_check_the_console_error() throws Throwable {
+          // infinite scrolling implemented
+		
+		long intialLength = (long) js.executeScript("return document.body.scrollHeight");
+		while (true) {
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,10500)", "");
+			try {
+				checkConsoleError();
+				Thread.sleep(3000);
 
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			if (!(driver.findElements(By.xpath("//em[normalize-space()='Loading - please wait...']")).isEmpty())) {
+				Thread.sleep(5000);
+				checkConsoleError();
+			}
+
+			long currentLength = (long) js.executeScript("return document.body.scrollHeight");
+			System.out.println("currentLength = " + currentLength);
+			if (intialLength == currentLength) {
+				System.out.println("intialLength 1 = " + currentLength);
+				System.out.println("currentLength 1 = " + currentLength);
+				break;
+			}
+			intialLength = currentLength;
+
+		}
 	}
 
 	@Then("^Click on the Free Business ppt and check the console error$")
@@ -102,7 +131,9 @@ public class FreePPT extends BaseClass {
 
 	@Then("^check the pagination and check the console error for business ppts$")
 	public void check_the_pagination_and_check_the_console_error_for_business_ppts() throws Throwable {
-		List<WebElement> sizeofPagination = driver.findElements(By.xpath("//div[3]//div[1]//div[1]//div//a"));
+		
+		// this code was for pagination
+		/*List<WebElement> sizeofPagination = driver.findElements(By.xpath("//div[3]//div[1]//div[1]//div//a"));
 
 		System.out.println(sizeofPagination.size() + " = size");
 
@@ -130,8 +161,35 @@ public class FreePPT extends BaseClass {
 			while (true);
 		} else {
 			System.out.println("No pagination exists");
-		}
+		}*/
+          // infinite scrolling implemented
+		
+				long intialLength = (long) js.executeScript("return document.body.scrollHeight");
+		while (true) {
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,10500)", "");
+			try {
+				checkConsoleError();
+				Thread.sleep(3000);
 
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			if (!(driver.findElements(By.xpath("//em[normalize-space()='Loading - please wait...']")).isEmpty())) {
+				Thread.sleep(5000);
+				checkConsoleError();
+			}
+
+			long currentLength = (long) js.executeScript("return document.body.scrollHeight");
+			System.out.println("currentLength = " + currentLength);
+			if (intialLength == currentLength) {
+				System.out.println("intialLength 1 = " + currentLength);
+				System.out.println("currentLength 1 = " + currentLength);
+				break;
+			}
+			intialLength = currentLength;
+
+		}
 	}
 
 }
