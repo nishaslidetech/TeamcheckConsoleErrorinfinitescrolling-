@@ -157,7 +157,7 @@ public class HomePage extends BaseClass {
 
 	@Then("^click on the pagibation and check the console error for the two pages only\\.$")
 	public void click_on_the_pagibation_and_check_the_console_error_for_the_two_pages_only() throws Throwable {
-		List<WebElement> sizeofPagination = driver.findElements(By.xpath("//div[3]//div[1]//div[1]//div//a"));
+		/*List<WebElement> sizeofPagination = driver.findElements(By.xpath("//div[3]//div[1]//div[1]//div//a"));
 
 		System.out.println(sizeofPagination.size() + " = size");
 
@@ -184,6 +184,48 @@ public class HomePage extends BaseClass {
 			while (true);
 		} else {
 			System.out.println("No pagination exists");
+		}*/
+		
+		// infinite scrolling implemented
+		
+		long intialLength = (long) js.executeScript("return document.body.scrollHeight");
+		while (true) {
+			js.executeScript("window.scrollBy(0,10500)", "");
+			checkConsoleError();
+			if (!(driver.findElements(By.xpath("//em[normalize-space()='Loading - please wait...']")).isEmpty())) {
+				try {
+					WebElement loader = driver
+							.findElement(By.xpath("//em[normalize-space()='Loading - please wait...']"));
+					js.executeScript("arguments[0].scrollIntoView();", loader);
+					Thread.sleep(5000);
+					checkConsoleError();
+				} catch (NoSuchElementException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if (!(driver.findElements(By.xpath("//button[@type='submit']")).isEmpty())) {
+				try {
+					WebElement loadMorePPT = driver.findElement(By.xpath("//button[@type='submit']"));
+					js.executeScript("arguments[0].scrollIntoView();", loadMorePPT);
+					loadMorePPT.click();
+					Thread.sleep(5000);
+					checkConsoleError();
+				} catch (NoSuchElementException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			long currentLength = (long) js.executeScript("return document.body.scrollHeight");
+			System.out.println("currentLength = " + currentLength);
+			if (intialLength == currentLength) {
+				System.out.println("intialLength 1 = " + currentLength);
+				System.out.println("currentLength 1 = " + currentLength);
+				break;
+			}
+			intialLength = currentLength;
+
 		}
 
 	}
