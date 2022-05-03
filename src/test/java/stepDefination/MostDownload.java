@@ -135,7 +135,8 @@ public class MostDownload extends BaseClass {
 
 	@Then("^click on the view page and check the console error$")
 	public void click_on_the_view_page_and_check_the_console_error() throws Throwable {
-		// driver.navigate().back();
+		driver.navigate().back();
+		Thread.sleep(4000);
 		selectDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.id("dk1-combobox")));
 		js.executeScript("arguments[0].scrollIntoView();", selectDropdown);
 		selectDropdown.click();
