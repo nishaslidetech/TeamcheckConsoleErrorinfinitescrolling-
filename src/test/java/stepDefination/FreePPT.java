@@ -32,6 +32,7 @@ public class FreePPT extends BaseClass {
 	@Then("^click on Free ppt and check console error$")
 	public void click_on_Free_ppt_and_check_console_error() throws Throwable {
 		try {
+			Thread.sleep(3000);
 			free_Stuff = wait.until(ExpectedConditions.elementToBeClickable(
 					By.xpath("//li[@class='menu-item has-sub-class']//a[@title = 'Free Stuff']")));
 			Actions action = new Actions(driver);
