@@ -33,7 +33,7 @@ public class SliPage extends BaseClass {
 		// click on "hr report" in left navigation bar
 
 		WebElement hr_Report = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-suggested-term='hr report']")));
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@data-tb-sid='sts_suggestion-term-link']")));
 		hr_Report.click();
 		Thread.sleep(3000);
 		checkConsoleError();
