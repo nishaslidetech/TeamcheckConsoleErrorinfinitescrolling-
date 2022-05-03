@@ -25,6 +25,7 @@ public class SliPage extends BaseClass {
 	public void enter_data_in_search_field_and_cehck_the_console_error() throws Throwable {
 		search_field = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
 		search_field.clear();
+		Thread.sleep(3000);
 		search_field.sendKeys("HR");
 		Thread.sleep(3000);
 
