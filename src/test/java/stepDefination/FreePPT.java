@@ -68,18 +68,19 @@ public class FreePPT extends BaseClass {
 		
 		long intialLength = (long) js.executeScript("return document.body.scrollHeight");
 		while (true) {
-			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,10500)", "");
-			try {
-				checkConsoleError();
-				Thread.sleep(3000);
-
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-
+			js.executeScript("window.scrollBy(0,10500)", "");
+			checkConsoleError();
 			if (!(driver.findElements(By.xpath("//em[normalize-space()='Loading - please wait...']")).isEmpty())) {
-				Thread.sleep(5000);
-				checkConsoleError();
+				try {
+					WebElement loader = driver
+							.findElement(By.xpath("//em[normalize-space()='Loading - please wait...']"));
+					js.executeScript("arguments[0].scrollIntoView();", loader);
+					Thread.sleep(5000);
+					checkConsoleError();
+				} catch (NoSuchElementException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 			long currentLength = (long) js.executeScript("return document.body.scrollHeight");
@@ -166,18 +167,19 @@ public class FreePPT extends BaseClass {
 		
 				long intialLength = (long) js.executeScript("return document.body.scrollHeight");
 		while (true) {
-			((JavascriptExecutor) driver).executeScript("window.scrollBy(0,10500)", "");
-			try {
-				checkConsoleError();
-				Thread.sleep(3000);
-
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-
+			js.executeScript("window.scrollBy(0,10500)", "");
+			checkConsoleError();
 			if (!(driver.findElements(By.xpath("//em[normalize-space()='Loading - please wait...']")).isEmpty())) {
-				Thread.sleep(5000);
-				checkConsoleError();
+				try {
+					WebElement loader = driver
+							.findElement(By.xpath("//em[normalize-space()='Loading - please wait...']"));
+					js.executeScript("arguments[0].scrollIntoView();", loader);
+					Thread.sleep(8000);
+					checkConsoleError();
+				} catch (NoSuchElementException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 			long currentLength = (long) js.executeScript("return document.body.scrollHeight");
