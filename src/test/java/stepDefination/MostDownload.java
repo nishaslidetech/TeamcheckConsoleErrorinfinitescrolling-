@@ -137,7 +137,7 @@ public class MostDownload extends BaseClass {
 	public void click_on_the_view_page_and_check_the_console_error() throws Throwable {
 		driver.navigate().back();
 		Thread.sleep(4000);
-		selectDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.id("dk1-combobox")));
+		/*selectDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.id("dk1-combobox")));
 		js.executeScript("arguments[0].scrollIntoView();", selectDropdown);
 		selectDropdown.click();
 
@@ -159,7 +159,7 @@ public class MostDownload extends BaseClass {
 		viewPerPage.click();
 		Thread.sleep(2000);
 		// print console error
-		checkConsoleError();
+		checkConsoleError();*/
 
 	}
 
