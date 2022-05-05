@@ -107,7 +107,9 @@ public class HomePage extends BaseClass {
 
 	@Then("^check the console errors for the footer navigation links$")
 	public void check_the_console_errors_for_the_footer_navigation_links() throws Throwable {
-
+		
+                driver.navigate().refresh();
+		Thread.sleep(3000);
 		WebElement aboutUs = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("About Us")));
 		js.executeScript("arguments[0].scrollIntoView();", aboutUs);
 		aboutUs.click();
