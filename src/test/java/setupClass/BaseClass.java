@@ -143,7 +143,7 @@ public class BaseClass {
 		printlog.append(System.getProperty("line.separator"));
 		printlog.append(System.getProperty("line.separator"));
 		printlog.close();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 	}
 
