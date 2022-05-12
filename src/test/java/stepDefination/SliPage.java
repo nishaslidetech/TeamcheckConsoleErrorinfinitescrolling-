@@ -63,7 +63,7 @@ public class SliPage extends BaseClass {
 
 	@Then("^click on pagination number and check the console error for two page only for sli$")
 	public void click_on_pagination_number_and_check_the_console_error_for_two_page_only_for_sli() throws Throwable {
-		List<WebElement> sizeofPagination = driver
+		/*List<WebElement> sizeofPagination = driver
 				.findElements(By.xpath("//div[3]//div[1]//div[1]//div[3]//ul[1]//li"));
 
 		System.out.println(sizeofPagination.size() + " = size");
@@ -92,6 +92,45 @@ public class SliPage extends BaseClass {
 			}
 		} else {
 			System.out.println("No pagination exists");
+		}*/
+		
+		long intialLength = (long) js.executeScript("return document.body.scrollHeight");
+		while (true) {
+			js.executeScript("window.scrollBy(0,10500)", "");
+			checkConsoleError();
+			if (!(driver.findElements(By.xpath("//em[normalize-space()='Loading - please wait...']")).isEmpty())) {
+				try {
+					WebElement loader = driver.findElement(By.xpath("//em[normalize-space()='Loading - please wait...']"));
+					js.executeScript("arguments[0].scrollIntoView();", loader);
+					Thread.sleep(5000);
+					checkConsoleError();
+				} catch (NoSuchElementException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if (!(driver.findElements(By.xpath("//button[@type='submit']")).isEmpty())) {
+				try {
+					WebElement loadMorePPT = driver.findElement(By.xpath("//button[@type='submit']"));
+					js.executeScript("arguments[0].scrollIntoView();", loadMorePPT);
+					loadMorePPT.click();
+					Thread.sleep(5000);
+					checkConsoleError();
+				} catch (NoSuchElementException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			long currentLength = (long) js.executeScript("return document.body.scrollHeight");
+			//System.out.println("currentLength = " + currentLength);
+			if (intialLength == currentLength) {
+				//System.out.println("intialLength 1 = " + currentLength);
+				//System.out.println("currentLength 1 = " + currentLength);
+				break;
+			}
+			intialLength = currentLength;
+
 		}
 	}
 
